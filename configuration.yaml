@@ -1,0 +1,172 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+
+http:
+  # Uncomment this to add a password (recommended!)
+    api_password: !secret api_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+    base_url: !secret api_base_url
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+
+# Text to speech
+
+digital_ocean:
+  access_token: !secret digital_ocean_access_token
+
+
+group: !include groups.yaml
+
+switch:
+  - platform: mqtt
+    name: "Test Switch"
+    state_topic: "switch1/gpio16/Switch"
+    command_topic: "switch1/gpio/16"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: false
+    qos: 0
+    retain: true
+
+light:
+  - platform: hue
+    allow_hue_groups: false
+    host: 192.168.20.5
+
+automation:
+# Turn off lights when everybody leaves the house
+  - alias: 'Away Mode'
+    trigger:
+      platform: state
+      entity_id: group.all_devices
+      state: 'not_home'
+    action:
+      - service: light.turn_off
+        entity_id: group.all_lights
+
+      - service: notify.matrix
+        data_template:
+          message: "All lights turned off!"
+
+  - alias: 'Home Mode'
+    trigger:
+      platform: state
+      entity_id: group.all_devices
+      state: 'home'
+    action:
+      - service: light.turn_on
+        entity_id: group.all_lights
+
+      - service: notify.matrix
+        data_template:
+          message: "All lights turned on!"
+
+  - alias: update notifications
+    trigger:
+      - platform: state
+        entity_id: updater.updater
+    action:
+      service: notify.matrix
+      data:
+        message: 'There is a new Home Assistant release available.'
+
+  - alias: Test Switch1 On
+    trigger:
+      platform: mqtt
+      topic: switch1/gpio16/Switch
+      # Optional
+      payload: '1'
+    action:
+      service: notify.matrix
+      data:
+        message: 'Test Switch On'
+
+  - alias: Test Switch1 Off
+    trigger:
+      platform: mqtt
+      topic: switch1/gpio16/Switch
+      # Optional
+      payload: '0'
+    action:
+      service: notify.matrix
+      data:
+        message: 'Test Switch Off'
+
+
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+
+  - platform: sonos
+
+notify:
+  - name: xmpp
+    platform: xmpp
+    sender: !secret xmpp_sender
+    password: !secret xmpp_password
+    recipient: !secret xmpp_recipient
+
+  - name: matrix 
+    platform: matrix
+    homeserver: !secret matrix_homeserver
+    username: !secret matrix_username
+    password: !secret matrix_password
+    default_room: !secret matrix_default_room
+
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  protocol: 3.1 
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+  discovery: true
+  discovery_prefix: homeassistant

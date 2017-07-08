@@ -1,0 +1,27 @@
+default_view:
+  view: yes
+  icon: mdi:home 
+  entities:
+    - group.livingroom
+    - group.bedroom
+    - group.bathroom
+livingroom:
+  name: Living Room
+  entities:
+    - media_player.living_room
+    - light.living_room_light
+    - light.dining_table_light
+    - light.kitchin_light
+bedroom:
+  name: Bedroom
+  entities:
+    - media_player.bedroom
+    - light.bedroom_bed_light
+    - light.bedroom__stairs_light
+bathroom:
+  name: Bathroom
+  entities:
+    - media_player.bathroom
+    - light.wardrobe_light
+    - light.bathroom_light
+
