@@ -11,8 +11,11 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Amsterdam
 
-# Show links to resources in log and frontend
-introduction:
+camera:
+  - platform: uvc
+    nvr: !secret uvc_nvr
+    key: !secret uvc_apikey
+
 
 # Enables the frontend
 frontend:
@@ -69,9 +72,12 @@ switch:
 light:
   - platform: hue
     allow_hue_groups: false
-    host: 192.168.20.5
+    host: !secret hue_host
 
-automation:
+# Configuration.yaml example
+automation: !include automations.yaml
+
+automation old:
 # Turn off lights when everybody leaves the house
   - alias: 'Away Mode'
     trigger:

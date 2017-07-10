@@ -5,6 +5,9 @@ default_view:
     - group.livingroom
     - group.bedroom
     - group.bathroom
+    - group.frontdoor
+    - group.automation
+
 livingroom:
   name: Living Room
   entities:
@@ -12,12 +15,15 @@ livingroom:
     - light.living_room_light
     - light.dining_table_light
     - light.kitchin_light
+    - switch.test_switch
+
 bedroom:
   name: Bedroom
   entities:
     - media_player.bedroom
     - light.bedroom_bed_light
     - light.bedroom__stairs_light
+
 bathroom:
   name: Bathroom
   entities:
@@ -25,3 +31,18 @@ bathroom:
     - light.wardrobe_light
     - light.bathroom_light
 
+frontdoor:
+  name: Frontdoor
+  entities:
+    - camera.front_door
+
+cctv:
+  name: CCTV
+  view: yes
+  entities:
+    - camera.living_room
+    - camera.front_door
+
+automation:
+  name: Automation
+  view: yes
