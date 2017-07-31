@@ -12,11 +12,11 @@ homeassistant:
   time_zone: Europe/Amsterdam
 
 
-device_tracker:
-  - platform: icloud
-    username: !secret icloud_username
-    password: !secret icloud_password
-    account_name: icloud
+#device_tracker:
+#  - platform: icloud
+#    username: !secret icloud_username
+#    password: !secret icloud_password
+#    account_name: icloud
 
 camera:
   - platform: uvc

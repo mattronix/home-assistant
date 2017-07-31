@@ -1,62 +1,68 @@
 default_view:
-  view: yes
-  icon: mdi:home 
+  view: true
+  icon: mdi:home
   entities:
-    - group.livingroom
-    - group.bedroom
-    - group.bathroom
-    - group.frontdoor
-    - group.automation
-    - sun.sun
-    - device_tracker.matthewsiphone
-
+  - device_tracker.matthewsiphone
+  - group.livingroom
+  - group.bedroom
+  - group.bathroom
+  - group.frontdoor
+  - group.automation
+  - sun.sun
+  name: default_view
 livingroom:
   name: Living Room
+  view: true
   entities:
-    - camera.living_room
-    - media_player.living_room
-    - light.living_room_light
-    - light.dining_table_light
-    - light.kitchin_light
-    - switch.test_switch
-
+  - camera.living_room
+  - media_player.living_room
+  - light.living_room_light
+  - light.dining_table_light
+  - light.kitchin_light
+  - switch.test_switch
 bedroom:
   name: Bedroom
+  view: true
   entities:
-    - media_player.bedroom
-    - light.bedroom_bed_light
-    - light.bedroom__stairs_light
-
+  - media_player.bedroom
+  - light.bedroom_bed_light
+  - light.bedroom__stairs_light
 bathroom:
   name: Bathroom
+  view: true
   entities:
-    - media_player.bathroom
-    - light.wardrobe_light
-    - light.bathroom_light
-
+  - media_player.bathroom
+  - light.wardrobe_light
+  - light.bathroom_light
 frontdoor:
   name: Frontdoor
   entities:
-    - camera.front_door
-
+  - camera.front_door
 cctv:
   name: CCTV
-  view: yes
+  view: true
   entities:
-    - sun.sun
-    - device_tracker.matthewsiphone
-    - camera.living_room
-    - camera.front_door
-
+  - sun.sun
+  - device_tracker.matthewsiphone
+  - camera.living_room
+  - camera.front_door
 automation:
   name: Automation
-  view: yes
+  view: true
   entities:
-    - sun.sun
-    - device_tracker.matthewsiphone
-    - automation.away_mode
-    - automation.home_mode
-    - automation.test_switch1_off
-    - automation.test_switch1_on
-    - automation.update_notifications
+  - sun.sun
+  - device_tracker.matthewsiphone
+  - automation.away_mode
+  - automation.home_mode
+  - automation.test_switch1_off
+  - automation.test_switch1_on
+  - automation.update_notifications
+  - group.mobiledevices
 
+mobiledevices:
+  name: Mobile Devices
+  entities:
+  - device_tracker.matthewsiphone
+  - device_tracker.matthewsimac
+  - device_tracker.matthewsapple_watch
+  - device_tracker.matthewsmacbookpro
