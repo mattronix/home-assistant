@@ -60,11 +60,6 @@ automation:
   view: false
   entities:
   - sun.sun
-  - automation.away_mode
-  - automation.home_mode
-  - automation.test_switch1_off
-  - automation.test_switch1_on
-  - automation.update_notifications
 
 lights:
   name: Lights

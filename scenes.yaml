@@ -1,4 +1,4 @@
-name: My New Scene
+name: Tropical twilight
 entities:
   light.bathroom_light:
     state: on

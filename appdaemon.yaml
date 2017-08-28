@@ -1,0 +1,17 @@
+AppDaemon:
+  app_dir: /home/homeassistant/appdaemon/apps
+  logfile: STDOUT
+  errorfile: STDERR
+  logsize: 100000
+  log_generations: 3
+  threads: 10
+  cert_verify: True
+  time_zone: Europe/Amsterdam
+  api_port: 5000
+  api_key: !secret api_password
+HASS:
+  ha_url: https://homenet.mattronix.nl
+  ha_key: !secret api_password
+HADashboard:
+  dash_url: http://192.168.1.20:5050
+  dash_dir: /home/homeassistant/dashboards
