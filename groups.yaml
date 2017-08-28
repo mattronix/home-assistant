@@ -2,14 +2,18 @@ default_view:
   view: true
   icon: mdi:home
   entities:
-  - device_tracker.matthewsiphone
+  - group.lights
+  - camera.living_room
+  - sun.sun
+  - group.mobiledevices
+  - group.automation
+  - device_tracker.pi_f7288cd7c327402789335e7612a0ad60
   - group.livingroom
   - group.bedroom
   - group.bathroom
   - group.frontdoor
-  - group.automation
-  - sun.sun
   name: default_view
+
 livingroom:
   name: Living Room
   view: true
@@ -20,6 +24,7 @@ livingroom:
   - light.dining_table_light
   - light.kitchin_light
   - switch.test_switch
+
 bedroom:
   name: Bedroom
   view: true
@@ -27,6 +32,7 @@ bedroom:
   - media_player.bedroom
   - light.bedroom_bed_light
   - light.bedroom__stairs_light
+
 bathroom:
   name: Bathroom
   view: true
@@ -34,35 +40,43 @@ bathroom:
   - media_player.bathroom
   - light.wardrobe_light
   - light.bathroom_light
+
 frontdoor:
   name: Frontdoor
   entities:
   - camera.front_door
+
 cctv:
   name: CCTV
   view: true
   entities:
   - sun.sun
-  - device_tracker.matthewsiphone
+  - device_tracker.pi_f7288cd7c327402789335e7612a0ad60
   - camera.living_room
   - camera.front_door
+
 automation:
   name: Automation
-  view: true
+  view: false
   entities:
   - sun.sun
-  - device_tracker.matthewsiphone
   - automation.away_mode
   - automation.home_mode
   - automation.test_switch1_off
   - automation.test_switch1_on
   - automation.update_notifications
-  - group.mobiledevices
+
+lights:
+  name: Lights
+  view: false
+  entities:
+  - light.bedroom
+  - light.living_room
+  - light.bathroom
+
+
 
 mobiledevices:
-  name: Mobile Devices
+  name: Presence
   entities:
-  - device_tracker.matthewsiphone
-  - device_tracker.matthewsimac
-  - device_tracker.matthewsapple_watch
-  - device_tracker.matthewsmacbookpro
+  - device_tracker.pi_f7288cd7c327402789335e7612a0ad60

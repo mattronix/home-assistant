@@ -11,12 +11,17 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Amsterdam
 
+zwave:
+  usb_path: /dev/ttyACM0
 
 #device_tracker:
 #  - platform: icloud
 #    username: !secret icloud_username
 #    password: !secret icloud_password
 #    account_name: icloud
+
+device_tracker:
+  - platform: owntracks
 
 camera:
   - platform: uvc
@@ -64,6 +69,7 @@ digital_ocean:
 
 
 group: !include groups.yaml
+scene: !include scenes.yaml
 
 switch:
   - platform: mqtt
@@ -78,7 +84,7 @@ switch:
 
 light:
   - platform: hue
-    allow_hue_groups: false
+    allow_hue_groups: true
     host: !secret hue_host
 
 # Configuration.yaml example

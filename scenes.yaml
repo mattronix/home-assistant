@@ -1,0 +1,42 @@
+name: My New Scene
+entities:
+  light.bathroom_light:
+    state: on
+    brightness: 77.0
+  light.living_room_light:
+    state: on
+    brightness: 112.0
+    color_temp: 403
+  light.bedroom:
+    state: on
+    brightness: 112.0
+    color_temp: 0
+  light.nuimo_group_4:
+    state: on
+    brightness: 113.0
+    color_temp: 153
+  light.kitchin_light:
+    state: on
+    brightness: 113.0
+    color_temp: 153
+  light.bedroom__stairs_light:
+    state: off
+  light.bedroom_bed_light:
+    state: on
+    brightness: 113.0
+    color_temp: 500
+  light.wardrobe_light:
+    state: off
+  switch.test_switch:
+    state: off
+  light.dining_table_light:
+    state: on
+    brightness: 112.0
+    color_temp: 153
+  light.bathroom:
+    state: on
+    brightness: 77.0
+  light.living_room:
+    state: on
+    brightness: 112.0
+    color_temp: 403
