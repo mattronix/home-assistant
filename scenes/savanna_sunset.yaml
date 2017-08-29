@@ -1,0 +1,26 @@
+  light.bathroom_light:
+    state: on
+    brightness: 77.0
+  light.dining_table_light:
+    state: on
+    brightness: 204.0
+    rgb_color: [255, 97, 38]
+  light.living_room_light:
+    state: on
+    brightness: 204.0
+    rgb_color: [255, 97, 38]
+  light.kitchin_light:
+    state: on
+    brightness: 204.0
+    rgb_color: [255, 95, 39]
+  light.bedroom__stairs_light:
+    state: on
+    brightness: 204.0
+    rgb_color: [255, 158, 80]
+  light.wardrobe_light:
+    state: on
+    brightness: 77.0
+  light.bedroom_bed_light:
+    state: on
+    brightness: 204.0
+    rgb_color: [255, 95, 39]

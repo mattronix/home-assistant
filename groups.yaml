@@ -12,6 +12,7 @@ default_view:
   - group.bedroom
   - group.bathroom
   - group.frontdoor
+  - group.scenes
   name: default_view
 
 livingroom:
@@ -65,11 +66,18 @@ lights:
   name: Lights
   view: false
   entities:
+  - group.all_lights
   - light.bedroom
   - light.living_room
   - light.bathroom
 
-
+scenes:
+  name: Scenes
+  view: false
+  entities:
+  - scene.tropical_twilight
+  - scene.savanna_sunset
+  - scene.energize
 
 mobiledevices:
   name: Presence

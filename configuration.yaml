@@ -68,6 +68,7 @@ digital_ocean:
   access_token: !secret digital_ocean_access_token
 
 
+sensor: !include sensors.yaml
 group: !include groups.yaml
 scene: !include scenes.yaml
 
