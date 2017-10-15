@@ -27,6 +27,7 @@ zwave:
 
 device_tracker:
   - platform: owntracks
+    waypoints: True
 
   - platform: nmap_tracker
     hosts:
@@ -133,3 +134,6 @@ mqtt:
     payload: 'offline'
   discovery: true
   discovery_prefix: homeassistant
+
+device_sun_light_trigger:
+  device_group: group.devicetracking
