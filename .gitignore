@@ -24,6 +24,7 @@ pyozw.sqlite
 html5_push_registrations.conf
 ip_bans.yaml
 /icloud/*
+/compiled/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

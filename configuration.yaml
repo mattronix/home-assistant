@@ -11,6 +11,11 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Amsterdam
 
+alarm_control_panel:
+  - platform: manual
+    code: !secret alarm_code
+    pending_time: 30
+
 zwave:
   usb_path: /dev/ttyACM0
 
@@ -22,6 +27,13 @@ zwave:
 
 device_tracker:
   - platform: owntracks
+
+  - platform: nmap_tracker
+    hosts:
+     - 192.168.100.6
+    home_interval: 10
+    track_new_devices: yes
+    scan_options: " --privileged -sP "
 
 camera:
   - platform: uvc
@@ -72,16 +84,6 @@ sensor: !include sensors.yaml
 group: !include groups.yaml
 scene: !include scenes.yaml
 
-switch:
-  - platform: mqtt
-    name: "Test Switch"
-    state_topic: "switch1/gpio16/Switch"
-    command_topic: "switch1/gpio/16"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
-    retain: true
 
 light:
   - platform: hue
@@ -117,13 +119,12 @@ notify:
 
 
 mqtt:
-  broker: 127.0.0.1
-  port: 1883
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
   client_id: home-assistant-1
   keepalive: 60
   username: !secret mqtt_username
   password: !secret mqtt_password
-  protocol: 3.1 
   birth_message:
     topic: 'hass/status'
     payload: 'online'

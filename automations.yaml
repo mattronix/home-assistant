@@ -1,1 +1,34 @@
-[]
+- action:
+  - alias: Set Livingroom lights Red
+    data:
+      brightness: 150
+      entity_id: light.living_room
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    service: light.turn_on
+  - alias: Turn off all media players
+    data: {}
+    service: media_player.media_pause
+  alias: Alarm Pending
+  id: '1504386314791'
+  trigger:
+  - entity_id: alarm_control_panel.ha_alarm
+    from: disarmed
+    platform: state
+    to: pending
+- action:
+  - data:
+      entity_id: scene.tropical_twilight
+    service: scene.turn_on
+  alias: Alarm Disarmed After Sunset
+  id: '1504387047043'
+  trigger:
+  - entity_id: alarm_control_panel.ha_alarm
+    platform: state
+    to: disarmed
+  condition:
+  - after: sunset
+    after_offset: '-1:00:00'
+    condition: sun

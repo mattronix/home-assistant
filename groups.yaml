@@ -7,12 +7,12 @@ default_view:
   - sun.sun
   - group.mobiledevices
   - group.automation
-  - device_tracker.pi_f7288cd7c327402789335e7612a0ad60
   - group.livingroom
   - group.bedroom
   - group.bathroom
   - group.frontdoor
   - group.scenes
+  - alarm_control_panel.ha_alarm
   name: default_view
 
 livingroom:
@@ -82,4 +82,5 @@ scenes:
 mobiledevices:
   name: Presence
   entities:
-  - device_tracker.pi_f7288cd7c327402789335e7612a0ad60
+  - device_tracker.matthewsiphonemattronixlocal
+  - device_tracker.matthew_037b935a008f4154a4b600fc4026b6e8
